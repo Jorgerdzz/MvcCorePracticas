@@ -29,5 +29,37 @@ namespace MvcCorePracticas.Controllers
             return View();
         }
 
+        public IActionResult ConjeturaCollatz()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult ConjeturaCollatz(int numero)
+        {
+            int resultado = 0;
+            List<int> resultados = new List<int>();
+            while (numero != 1)
+            {
+                if (numero % 2 == 0)
+                {
+                    resultado = numero / 2;
+                }
+                else
+                {
+                    resultado = (numero * 3) + 1;
+                }
+                numero = resultado;
+                resultados.Add(resultado);
+            }
+            string numerosCollatz = "";
+            foreach(int result in resultados)
+            {
+                numerosCollatz += result + ", ";
+            }
+            ViewData["RESULTADO"] = numerosCollatz;
+            return View();
+        }
+
     }
 }

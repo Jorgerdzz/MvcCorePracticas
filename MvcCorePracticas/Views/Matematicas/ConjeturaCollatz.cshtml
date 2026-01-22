@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+<form method="POST">
+    <label>Introduzca un numero</label>
+    <input type="number" name="numero" class="form-control"/>
+    <button>Generar Collatz</button>
+</form>
+
+@* <ul>
+    @foreach(int resultado in @ViewData["RESULTADOS"].ToString())
+    {
+        <li>
+            @resultado
+        </li>
+    }
+</ul> *@
+
+@if(ViewData["RESULTADO"] != null)
+{
+    <ul>
+        <li>@ViewData["RESULTADO"]</li>
+    </ul> 
+}
