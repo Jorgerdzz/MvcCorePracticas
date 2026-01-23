@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcCorePracticas.Models;
 
 namespace MvcCorePracticas.Controllers
 {
@@ -59,6 +60,27 @@ namespace MvcCorePracticas.Controllers
             }
             ViewData["RESULTADO"] = numerosCollatz;
             return View();
+        }
+
+        public IActionResult TablaMultiplicar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult TablaMultiplicar(int numero)
+        {
+            List<TablaMultiplicarModel> tabla = new List<TablaMultiplicarModel>();
+            string operacion = "";
+            int resultado = 0;
+            for(int i=1; i<=10; i++)
+            {
+                TablaMultiplicarModel t = new TablaMultiplicarModel();
+                t.Operaciones = numero + " * " + i;
+                t.Resultados = numero * i;
+                tabla.Add(t);
+            }
+            return View(tabla);
         }
 
     }

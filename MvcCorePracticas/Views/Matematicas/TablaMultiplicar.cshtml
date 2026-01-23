@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<TablaMultiplicarModel>
+
+<h1>Tabla Multiplicar</h1>
+
+<form method="POST">
+    <label>Introduzca numero</label>
+    <input type="number" name="numero" class="form-control"/>
+    <button>Generar tabla</button>
+</form>
+
+@if (Model != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>OPERACIONES</th>
+                <th>RESULTADOS</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (TablaMultiplicarModel tabla in Model)
+            {
+                <tr>
+                    <td>@tabla.Operaciones</td>
+                    <td>@tabla.Resultados</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
